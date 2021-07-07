@@ -28,4 +28,8 @@ node{
   stage ('Build Docker image'){
     sh 'docker build -t sivaganesh/myapp:1.0.0 .'
   }
+  stage ('Push Docker image'){
+    sh 'docker login -u Sivaganesh -p Mr7QL=RdVl3uhzVcOUpDLZgGpLfG37iL'
+    sh 'docker push -t sivaganesh/myapp:1.0.0 .'
+  }
 }
