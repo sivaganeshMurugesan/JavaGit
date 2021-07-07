@@ -1,7 +1,7 @@
 node{
-  stage('SCM clone'){
-    git 'https://github.com/sivaganeshMurugesan/JavaGit'
-  }
+  stage('Clone') {
+        checkout scm
+    }
   stage('package'){
     def mvnHome= tool name: 'Maven', type: 'maven'
     sh '${mvnHome}/bin/mvn package'
