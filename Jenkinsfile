@@ -15,7 +15,7 @@ node{
   stage('nexus upload'){
       nexusArtifactUploader artifacts: [[artifactId: 'myweb', 
                                          classifier: '', 
-                                         file: 'target/my-app-1.0.0.war', 
+                                         file: 'target/myweb-1.0.0.war', 
                                          type: 'war']],
       credentialsId: 'NexusIntegration', 
       groupId: 'in.javahome', 
