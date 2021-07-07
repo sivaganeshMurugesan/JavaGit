@@ -29,7 +29,7 @@ node{
     sh 'docker build -t sivaganesh/myapp:1.0.0 .'
   }
   stage ('Push Docker image'){
-    withCredentials([string(credentialsId: 'Sonarqubeinter', variable: 'dockerHubPwd')]) {
+    withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerHubPwd')]) {
     // some block
       sh "docker login -u sivaganesh1625977 -p ${dockerHubPwd}"
     }
