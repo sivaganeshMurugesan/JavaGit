@@ -1,1 +1,1 @@
-# JavaGit
+# JavaGit preparation
