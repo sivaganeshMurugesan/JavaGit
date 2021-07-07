@@ -26,6 +26,6 @@ node{
       version: '1.0.0'
   }
   stage ('Build Docker image'){
-    sh 'docker build -t 'sivaganeshMurugesan/myapp:1.0.0'
+    sh 'docker build -t 'sivaganeshMurugesan/myapp:1.0.0 .'
   }
 }
