@@ -25,4 +25,7 @@ node{
       repository: 'POC1', 
       version: '1.0.0'
   }
+  stage ('Build Docker image'){
+    sh 'docker build -t 'sivaganeshMurugesan/myapp:1.0.0'
+  }
 }
