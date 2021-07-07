@@ -31,7 +31,7 @@ node{
   stage ('Push Docker image'){
     withCredentials([string(credentialsId: 'Sonarqubeinter', variable: 'dockerHubPwd')]) {
     // some block
-      sh "docker login -u Sivaganesh -p ${dockerHubPwd}"
+      sh "docker login -u sivaganesh1625977 -p ${dockerHubPwd}"
     }
     sh 'docker push -t sivaganesh/myapp:1.0.0 .'
   }
