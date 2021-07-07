@@ -23,7 +23,7 @@ node{
       nexusUrl: '10.0.0.13:8081', 
       nexusVersion: 'nexus3',
       protocol: 'http',
-      repository: 'http://104.45.142.245:8081/repository/POC1/', 
+      repository: 'POC1', 
       version: '1.0.0'
     }
   }
