@@ -13,7 +13,6 @@ node{
     }
   }
   stage('nexus upload'){
-    steps{
       nexusArtifactUploader artifacts: [[artifactId: 'myweb', 
                                          classifier: '', 
                                          file: 'target/my-app-1.0.0.war', 
@@ -25,6 +24,5 @@ node{
       protocol: 'http',
       repository: 'POC1', 
       version: '1.0.0'
-    }
   }
 }
