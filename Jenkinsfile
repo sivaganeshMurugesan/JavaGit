@@ -33,7 +33,7 @@ node{
     // some block
       sh "docker login -u sivaganesh1625977 -p ${dockerHubPwd}"
       docker tag 'sivaganesh/myapp:1.0.0' 'sivaganesh1625977/sivaganesh/myapp:1.0.0'
-      sh 'docker push sivaganesh/myapp:1.0.0'
+      sh 'docker push sivaganesh1625977/sivaganesh/myapp:1.0.0'
     }
 
   }
