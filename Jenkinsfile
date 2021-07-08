@@ -37,6 +37,7 @@ node{
   }
     stage ('K8S Deploy') {
       withCredentials([file(credentialsId: 'K8s', variable: 'KUBECRED')]) {
+            sh 'mkdir ~/.kube'
             sh 'cat $KUBECRED > ~/.kube/config'
             sh 'kubectl apply -f deployment.yaml'
       }          
