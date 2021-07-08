@@ -26,7 +26,7 @@ node{
       version: '1.0.0'
   }
   stage ('Build Docker Image'){
-    sh 'docker build -t sivaganesh/myapp:1.0.0 .'
+    sh 'docker build -t sivaganesh1625977/myapp:1.0.0 .'
   }
   stage ('Push Docker Image'){
     withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerHubPwd')]) {
