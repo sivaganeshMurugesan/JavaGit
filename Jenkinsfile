@@ -25,10 +25,10 @@ node{
       repository: 'POC1', 
       version: '1.0.0'
   }
-  stage ('Build Docker image'){
+  stage ('Build Docker Image'){
     sh 'docker build -t sivaganesh/myapp:1.0.0 .'
   }
-  stage ('Push Docker image'){
+  stage ('Push Docker Image'){
     withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerHubPwd')]) {
     // some block
       sh "docker login -u sivaganesh1625977 -p ${dockerHubPwd}"
