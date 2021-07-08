@@ -4,7 +4,7 @@ node{
     }
   stage('package'){
     def mvnHome= tool name: 'Maven', type: 'maven'
-    sh "${mvnHome}/bin/mvn package -DV=${BUILDNUMBER}"
+    sh "${mvnHome}/bin/mvn package versions:${BUILDNUMBER}"
   }
   stage ('sonarqube analysis'){
     def mvnHome= tool name: 'Maven', type: 'maven'
