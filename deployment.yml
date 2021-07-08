@@ -2,13 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: javaapp
+  labels:
+    app: javaapp
 spec:
   replicas: 3
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
   selector:
     matchLabels:
       app: javaapp
@@ -18,7 +15,7 @@ spec:
         app: javaapp
     spec:
       containers:
-      - image: sivaganesh1625977/myapp:1.0.0
-        name: javaapp
+      - name: javaapp
+        image: sivaganesh1625977/myapp:1.0.0
         ports:
         - containerPort: 8080
