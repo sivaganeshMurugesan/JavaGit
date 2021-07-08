@@ -15,7 +15,7 @@ node{
   stage('nexus upload'){
       nexusArtifactUploader artifacts: [[artifactId: 'myweb', 
                                          classifier: '', 
-                                         file: 'target/myweb-72.0.0.war', 
+                                         file: 'target/myweb-1.0.0.war', 
                                          type: 'war']],
       credentialsId: 'NexusIntegration', 
       groupId: 'in.javahome', 
@@ -23,7 +23,7 @@ node{
       nexusVersion: 'nexus3',
       protocol: 'http',
       repository: 'POC1', 
-      version: '72.0.0'
+      version: '1.0.0'
   }
   stage ('Build Docker Image'){
     sh 'docker build -t sivaganesh1625977/myapp:72.0.0 .'
