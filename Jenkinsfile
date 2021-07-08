@@ -4,7 +4,7 @@ node{
     }
   stage('package'){
     def mvnHome= tool name: 'Maven', type: 'maven'
-    sh "${mvnHome}/bin/mvn package -Dv=${BUILD_NUMBER}"
+    sh "${mvnHome}/bin/mvn clean package -Dv=${BUILD_NUMBER}"
   }
   stage ('sonarqube analysis'){
     def mvnHome= tool name: 'Maven', type: 'maven'
