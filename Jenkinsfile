@@ -36,7 +36,7 @@ node{
     sh 'docker push sivaganesh1625977/myapp:1.0.0'
   }
     stage ('K8S Deploy') {
-      withCredentials([file(credentialsId: 'azureAuth', variable: 'KUBECRED')]) {
+      withCredentials([file(credentialsId: 'k8s', variable: 'KUBECRED')]) {
             sh 'cat $KUBECRED > ~/.kube/config'
             sh 'kubectl apply -f deployment.yaml'
       }          
