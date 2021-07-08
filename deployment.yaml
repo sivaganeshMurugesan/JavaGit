@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: javaapp
-        image: imagesdep
+        image: imagesdep:latest
         ports:
         - containerPort: 8080
 ---
