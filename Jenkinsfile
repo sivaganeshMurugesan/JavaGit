@@ -39,7 +39,7 @@ node{
       withCredentials([file(credentialsId: 'K8s', variable: 'KUBECRED')]) {
             
             sh 'cat $KUBECRED > ~/.kube/config'
-            sh "kubectl set image deployment/my-deployment mycontainer=sivaganesh1625977/myapp:${BUILD_NUMBER}"
+            sh "kubectl set image deployment/my-deployment javaapp imagedeps=sivaganesh1625977/myapp:${BUILD_NUMBER}"
             sh 'kubectl apply -f deployment.yaml'
       }          
         }
