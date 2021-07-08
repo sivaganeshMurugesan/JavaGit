@@ -38,7 +38,7 @@ node{
     stage ('K8S Deploy') {
         script {
             kubernetesDeploy(
-                 configs: 'deployment.yml',
+                 configs: 'deployment.yaml',
                  kubeconfigId: 'azureAuth',
                  enableConfigSubstitution: true
                     )           
