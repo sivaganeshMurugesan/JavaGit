@@ -24,8 +24,7 @@ spec:
         image: sivaganesh1625977/myapp:1.0.0
         ports:
         - containerPort: 8080
-        
- ---
+---
 kind: Service
 apiVersion: v1
 metadata:
