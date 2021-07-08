@@ -23,7 +23,7 @@ node{
       nexusVersion: 'nexus3',
       protocol: 'http',
       repository: 'POC1', 
-      version: '1.0.0'
+      version: '72.0.0'
   }
   stage ('Build Docker Image'){
     sh 'docker build -t sivaganesh1625977/myapp:72.0.0 .'
