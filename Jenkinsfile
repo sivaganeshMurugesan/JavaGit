@@ -35,4 +35,14 @@ node{
     }
     sh 'docker push sivaganesh1625977/myapp:1.0.0'
   }
+    stage ('K8S Deploy') {
+        script {
+            kubernetesDeploy(
+                 configs: 'k8s-deployment.yaml',
+                 kubeconfigId: 'azureAuth',
+                 enableConfigSubstitution: true
+                    )           
+               
+        }
+    }
 }
