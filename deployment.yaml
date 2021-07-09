@@ -24,7 +24,6 @@ spec:
         image: imagesdep
         ports:
         - containerPort: 8080
-        
 ---
 kind: Service
 apiVersion: v1
