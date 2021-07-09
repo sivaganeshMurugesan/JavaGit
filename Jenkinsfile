@@ -2,14 +2,10 @@ node{
   stage('Clone') {
         checkout scm
     }
-  stage('package'){
-    def mvnHome= tool name: 'Maven', type: 'maven'
-    sh "${mvnHome}/bin/mvn clean package -Dv=${BUILD_NUMBER}"
-  }
-  stage ('sonarqube analysis'){
+  stage('package and Sonarqube analysis'){
     def mvnHome= tool name: 'Maven', type: 'maven'
     withSonarQubeEnv('sonarqubeScanner') {
-       sh "${mvnHome}/bin/mvn sonar:sonar"
+       sh "${mvnHome}/bin/mvn clean package -Dv=${BUILD_NUMBER} sonar:sonar"
     }
   }
   stage('nexus upload'){
