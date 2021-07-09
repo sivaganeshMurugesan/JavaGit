@@ -36,8 +36,7 @@ node{
             
             sh 'cat $KUBECRED > ~/.kube/config'
             replacement="/deployment.yaml"
-            value=sivaganesh1625977/myapp:${BUILD_NUMBER}
-            sh 'sed -i "s@imagesdep@$value@"'
+            sh 'sed -i "s@imagesdep@'sivaganesh1625977/myapp:${BUILD_NUMBER}'@"'
             sh 'kubectl apply -f deployment.yaml'
       }          
         }
