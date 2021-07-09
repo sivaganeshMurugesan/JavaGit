@@ -35,7 +35,9 @@ node{
       withCredentials([file(credentialsId: 'K8s', variable: 'KUBECRED')]) {
             
             sh 'cat $KUBECRED > ~/.kube/config'
-            sh """sed -i "s/imagesdep/sivaganesh1625977/myapp:${BUILD_NUMBER}/g" /deployment.yaml"""
+            replacement="/deployment.yaml"
+            value=sivaganesh1625977/myapp:${BUILD_NUMBER}
+            sh 'sed -i "s@imagesdep@$value@"'
             sh 'kubectl apply -f deployment.yaml'
       }          
         }
