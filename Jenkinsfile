@@ -14,5 +14,11 @@ node{
   stage ('Build Docker Image'){
     sh "docker build -t sivaganesh1625977/myapp:${BUILD_NUMBER} ."
   }
+  stage ('Push Docker Image'){
+    withCredentials([string(credentialsId: 'dockerpwds', variable: 'dockerpwd')]) {
+      sh "docker login -u sivaganesh1625977 -p ${dockerpwd}"
+    }
+    sh "docker push sivaganesh1625977/myapp:${BUILD_NUMBER}"
+  }
   
 }
