@@ -3,8 +3,10 @@ node{
         checkout scm
     }
   stage('package and Sonarqube analysis'){
-    def mvnHome= tool name: 'Maven', type: 'maven'
-    withSonarQubeEnv('sonarqubeScanner') {
+    //def mvnHome= tool name: 'Maven', type: 'maven'
+    def mvnHome=tool name: 'maven', type: 'maven'
+    //changed sonarqubeScanner to sonarqube
+    withSonarQubeEnv('sonarqube') {
        sh "${mvnHome}/bin/mvn clean package -Dv=${BUILD_NUMBER} sonar:sonar"
     }
   }
