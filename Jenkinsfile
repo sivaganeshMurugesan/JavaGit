@@ -22,7 +22,7 @@ node{
   }
   stage ('K8S Deploy') {
       withCredentials([file(credentialsId: 'kubeconfig', variable: 'FILE')]) {
-            sh """sed -i "s@imagesdep@sivaganesh1625977/myapp:${BUILD_NUMBER}@g" /var/lib/jenkins/workspace/Siva_pipeline/deployment.yaml"""
+            sh """sed -i "s@imagesdep@sivaganesh1625977/myapp@g" /var/lib/jenkins/workspace/Siva_pipeline/deployment.yaml"""
             sh 'kubectl --kubeconfig=$FILE apply -f deployment.yaml'
       }          
    }
