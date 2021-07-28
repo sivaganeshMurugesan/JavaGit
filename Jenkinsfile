@@ -21,11 +21,9 @@ node{
     sh "docker push sivaganesh1625977/myapp:${BUILD_NUMBER}"
   }
   stage ('K8S Deploy') {
-      withCredentials([file(credentialsId: 'K8s', variable: 'KUBECRED')]) {
-            
-            sh 'cat $KUBECRED > ~/.kube/config'
+      withCredentials([file(credentialsId: 'kubeconfig', variable: 'FILE')]) {
             sh """sed -i "s@imagesdep@sivaganesh1625977/myapp:${BUILD_NUMBER}@g" /var/lib/jenkins/workspace/POC1_pipeline/deployment.yaml"""
-            sh 'kubectl apply -f deployment.yaml'
+            sh 'kubectl --kubeconfig=$FILE apply -f deployment.yaml'
       }          
    }
   
