@@ -5,9 +5,10 @@ node{
   stage('package and Sonarqube analysis'){
     //def mvnHome= tool name: 'Maven', type: 'maven'
     def mvnHome=tool name: 'maven', type: 'maven'
-    withSonarQubeEnv('sonarqubeScanner') {
-       sh "${mvnHome}/bin/mvn clean package -Dv=${BUILD_NUMBER} sonar:sonar"
-    }
+    sh "${mvnHome}/bin/mvn clean packag
+    //withSonarQubeEnv('sonarqubeScanner') {
+    //   sh "${mvnHome}/bin/mvn clean package -Dv=${BUILD_NUMBER} sonar:sonar"
+    //}
   }
   stage('nexus upload'){
       nexusArtifactUploader artifacts: [[artifactId: 'myweb', 
