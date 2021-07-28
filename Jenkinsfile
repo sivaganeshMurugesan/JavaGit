@@ -15,7 +15,7 @@ node{
                                          type: 'war']],
       credentialsId: 'NexusIntegration', 
       groupId: 'in.javahome', 
-      nexusUrl: 'http://13.68.212.139:8083', 
+      nexusUrl: '13.68.212.139:8083', 
       nexusVersion: 'nexus3',
       protocol: 'http',
       repository: 'Siva_poc', 
