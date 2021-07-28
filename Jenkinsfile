@@ -9,7 +9,7 @@ node{
     }
   }
   stage('nexus upload'){
-    nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: '', file: 'target/myweb-${BUILD_NUMBER}.war', type: 'war']], credentialsId: 'd922f515-57fb-480d-af12-ab94728b76b2', groupId: 'in.javahome', nexusUrl: '10.0.0.4:8083', nexusVersion: 'nexus3', protocol: 'http', repository: 'poc1', version: '1.0.0'
+    nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: '', file: 'target/myweb-${BUILD_NUMBER}.war', type: 'war']], credentialsId: 'd922f515-57fb-480d-af12-ab94728b76b2', groupId: 'in.javahome', nexusUrl: '10.0.0.4:8083', nexusVersion: 'nexus3', protocol: 'http', repository: 'poc1', version: "${BUILD_NUMBER}"
   }
   stage ('Build Docker Image'){
     sh "docker build -t sivaganesh1625977/myapp:${BUILD_NUMBER} ."
@@ -20,5 +20,13 @@ node{
     }
     sh "docker push sivaganesh1625977/myapp:${BUILD_NUMBER}"
   }
+  stage ('K8S Deploy') {
+      withCredentials([file(credentialsId: 'K8s', variable: 'KUBECRED')]) {
+            
+            sh 'cat $KUBECRED > ~/.kube/config'
+            sh """sed -i "s@imagesdep@sivaganesh1625977/myapp:${BUILD_NUMBER}@g" /var/lib/jenkins/workspace/POC1_pipeline/deployment.yaml"""
+            sh 'kubectl apply -f deployment.yaml'
+      }          
+   }
   
 }
