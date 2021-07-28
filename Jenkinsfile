@@ -5,7 +5,7 @@ node{
   stage('package and Sonarqube analysis'){
     //def mvnHome= tool name: 'Maven', type: 'maven'
     def mvnHome=tool name: 'maven', type: 'maven'
-    sh "${mvnHome}/bin/mvn clean package
+    sh "${mvnHome}/bin/mvn clean package"
     //withSonarQubeEnv('sonarqubeScanner') {
     //   sh "${mvnHome}/bin/mvn clean package -Dv=${BUILD_NUMBER} sonar:sonar"
     //}
