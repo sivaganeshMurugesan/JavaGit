@@ -5,7 +5,7 @@ node{
   stage('Package and sonarqube analysis '){
       
     withSonarQubeEnv('sonarqubeScanner') {
-       sh "mvn clean package -Dv=${BUILD_NUMBER} sonar:sonar"
+       sh "mvn clean package .Dv=${BUILD_NUMBER} sonar:sonar"
     }
   }
   stage('nexus upload'){
