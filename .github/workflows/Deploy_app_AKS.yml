@@ -1,8 +1,8 @@
 name: GitHub-deployment
-env:
- secret: akspullsecret
- AKS_user_name: AKSclusterUsername
- AKS_password:  AKSClusterPassword
+#env:
+# secret: akspullsecret
+# AKS_user_name: AKSclusterUsername
+# AKS_password:  AKSClusterPassword
 #run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 permissions:
@@ -20,6 +20,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
        java-version: '11'
+       distribution: 'adoptopenjdk'
     - name: mavenBuild
       run: mvn clean package -DskipTests
     - name: build docker
