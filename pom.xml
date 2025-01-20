@@ -4,7 +4,7 @@
 	<groupId>in.javahome</groupId>
 	<artifactId>myweb</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0</version>
+	<version>3.3.1</version>
 	<name>my-app</name>
 	<url>http://maven.apache.org</url>
 
@@ -39,7 +39,7 @@
 		    <id>nexus</id>
 		    <url>http://13.68.212.139:8083/repository/my-app-release/</url>
 		</repository>
-  	</distributionManagement>
+  	</distributionManagement> 
 	
 <build>
     <plugins>
