@@ -18,6 +18,8 @@ jobs:
       uses: actions/checkout@v2
     - name: setup java
       uses: actions/setup-java@v2
+      with:
+       java-version: '11'
     - name: mavenBuild
       run: mvn clean package -DskipTests
     - name: build docker
