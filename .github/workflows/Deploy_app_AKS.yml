@@ -1,0 +1,28 @@
+name: GitHub-deployment
+env:
+ secret: akspullsecret
+ AKS_user_name: AKSclusterUsername
+ AKS_password:  AKSClusterPassword
+#run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+permissions:
+  contents : read
+  packages : read
+  security-events: write
+  actions: read
+jobs:
+  Maven_build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout cide
+      uses: actions/checkout@v2
+    - name: setup java
+      uses: actions/setup-java@v2
+    - name: mavenBuild
+      run: mvn clean package -DskipTests
+    - name: build docker
+      run: |
+          docker build -t javapp:$GITHUB_SHA .
+          
+     
+      
