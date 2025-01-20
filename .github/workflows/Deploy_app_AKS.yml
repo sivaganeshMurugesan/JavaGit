@@ -20,7 +20,7 @@ jobs:
       run: | 
           sudo apt-get update -y
           sudo apt-get install openjdk-11-jdk -y
-          java version
+          java -version
     - name: mavenBuild
       run: mvn clean package -DskipTests
     - name: build docker
