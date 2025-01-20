@@ -18,7 +18,7 @@ jobs:
       uses: actions/checkout@v2
     - name: setup java
       run: | 
-          sudo apt-get update
+          sudo apt-get update -y
           sudo apt-get install openjdk-11-jdk -y
           java version
     - name: mavenBuild
